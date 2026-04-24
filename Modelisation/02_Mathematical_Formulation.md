@@ -313,4 +313,4 @@ $$\boxed{
 
 ---
 
-*Document de référence — Stage UFMG 2026 — Ricardo Saraiva de Camargo*
+*Document de référence — Stage UFMG 2026 — Bastien Jacquelin*
