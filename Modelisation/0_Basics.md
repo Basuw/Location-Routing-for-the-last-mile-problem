@@ -1,12 +1,10 @@
 # Formulation Mathématique — LRP avec Lockers Stationnaires et MNL
 
-## 1. Indices et Ensembles
-
-
-### Part de marché capturée
+### Market share obtained
 
 $$
 \text{max: }
+\sum_{i \in I}
 w_i\sum_{j \in J}
 \frac
     {U_{ij} \cdot y_j}
@@ -34,7 +32,7 @@ $$
 u_{ik} \cdot y_k \rarr \text{utility of open lockers}
 $$
 
-### Définition de l'utilité U ij​
+### Definition of utility U
 
 $$
 u_{ik} = \frac
@@ -59,7 +57,7 @@ $$
 $$
 ---
 
-### Attractivité totale des concurrents
+### Global attractivty of competitors
 
 $$
 \sum_{c \in C} U_{ic} = u^0
@@ -71,7 +69,7 @@ $$
 
 ---
 
-### Nombre maximal de lockers
+### Maximum amount of locker
 
 $$
 \sum_{j \in J} y_j \le P  \quad | \quad y_j \in \{0,1\} \quad | \quad \forall j \in J
@@ -79,7 +77,7 @@ $$
 
 ---
 
-### Extension multi-types
+### Multi-types extension
 
 $$
 \max \sum_{i \in I} w_i \sum_{j \in J} \sum_{e \in E} 
