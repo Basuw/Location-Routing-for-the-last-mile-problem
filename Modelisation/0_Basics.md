@@ -6,6 +6,7 @@
 ### Part de marché capturée
 
 $$
+\text{max: }
 w_i\sum_{j \in J}
 \frac
     {U_{ij} \cdot y_j}
@@ -81,18 +82,18 @@ $$
 ### Extension multi-types
 
 $$
-\max \sum_{i} w_i \sum_{j} \sum_{e} 
+\max \sum_{i \in I} w_i \sum_{j \in J} \sum_{e \in E} 
 \frac
 {u_{ij}^e \cdot y_{je}}
 {
-    \sum_{k}\sum_{l}
-    u_{ik}^l \cdot y_{kl}
+    \sum_{k \in J}\sum_{e}
+    u_{ik}^e \cdot y_{ke}
     +u^0
 }
 $$
 
 $$
-e, l \rarr  \text{same index, type of locker}
+e \rarr  \text{type of locker}
 $$
 $$
 j, k \rarr  \text{candidate site for locker}
