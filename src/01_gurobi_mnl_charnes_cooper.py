@@ -3,22 +3,11 @@
 Exact resolution of the locker location problem with MNL objective.
 Method: Charnes-Cooper transformation + McCormick inequalities → MILP
 
-Problem:
-    max  Σ_i w_i * S_i / (S_i + u0_i)
-    s.t. Σ_j y_j <= P
-         y_j ∈ {0,1}
-    where S_i = Σ_j u_ij * y_j   (total attractiveness of open lockers for zone i)
-          u0_i = Σ_c u_ic         (fixed competitor attractiveness for zone i)
-
 Toy instance:
     - 6 demand zones (I)
     - 10 candidate locker sites (J)
     - 3 competitor facilities (C)
     - P = 3 maximum lockers to open
-
-Dependencies:
-    pip install gurobipy numpy
-    (Free academic Gurobi license: https://www.gurobi.com/academia/)
 """
 
 import numpy as np
@@ -61,13 +50,13 @@ def euclidean(a, b):
     return np.sqrt(np.sum((a - b)**2)) + 1e-6
 
 # Distance matrices
-dist_iz = np.array([[euclidean(coords_zones[i], coords_lockers[j])
+dist_ij = np.array([[euclidean(coords_zones[i], coords_lockers[j])
                      for j in J] for i in I])
 dist_ic = np.array([[euclidean(coords_zones[i], coords_compet[c])
                      for c in C] for i in I])
 
 # Utility: u_ij = A_j / d_ij^rho  (Huff gravity model)
-u = np.array([[A_locker[j] / (dist_iz[i, j] ** rho)
+u = np.array([[A_locker[j] / (dist_ij[i, j] ** rho)
                for j in J] for i in I])
 
 # Competitor baseline for each zone: u0_i = Σ_c A_c / d_ic^rho
